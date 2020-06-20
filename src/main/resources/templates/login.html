@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My App</title>
+<link th:href="@{~/css/app.css}" rel="stylesheet">
+<link th:href="@{~/css/bootstrap.min.css}" rel="stylesheet" th:id="bootstrap-css">
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<a target="_blank" href="https://bootsnipp.com/snippets/92gmX">bootsnipp</a>
+
+<div class="login-reg-panel">
+	<div class="login-info-box">
+		<h2>Have an account?</h2>,
+		<p>Lorem ipsum dolor sit amet</p>
+		<label id="label-register" for="log-reg-show">Login</label> <input
+			type="radio" name="active-log-panel" id="log-reg-show"
+			checked="checked">
+	</div>
+
+	<div class="register-info-box">
+		<h2>Don't have an account?</h2>
+		<p>Lorem ipsum dolor sit amet</p>
+		<label id="label-login" for="log-login-show">Register</label> <input
+			type="radio" name="active-log-panel" id="log-login-show">
+	</div>
+
+	<div class="white-panel">
+		<div class="login-show">
+			<h2>LOGIN</h2>
+			<form action="/login" method="post">
+			<input type="text" name="username" placeholder="Email"> <input
+				type="password" name="password" placeholder="Password"> <input type="submit"
+				value="Login"> <a href="">Forgot password?</a>
+				
+			<div id="errors" style="color: red; margin-top: 30px;" th:if="${(param.error != null) and (param.error[0] == 'true')}">
+			    Input is incorrect, Please try with correct credentials.
+			</div>
+			</form>
+		</div>
+		<div class="register-show">
+			<h2>REGISTER</h2>
+			<form id="registerForm">
+			<input type="text" class="name" name="name" placeholder="Name">
+			<input type="text" class="designation" name="designation" placeholder="Designation">
+			<input type="text" class="email" name="email" placeholder="Email"> <input
+				type="password" class="password" name="password" placeholder="Password"> <input
+				type="password" class="confirmPassword" name="confirmPassword" placeholder="Confirm Password"> <input
+				type="button" id="registerBtn" value="Register">
+			</form>
+		</div>
+	</div>
+</div>
+<script
+	th:src="@{~/js/bootstrap.min.js}"></script>
+<script
+	th:src="@{~/js/jquery.min.js}"></script>
+	
+<script th:src="@{${'/js/app.js'}}" defer></script>
+</body>
+</html>
